@@ -32,7 +32,6 @@ prompt = PromptTemplate(input_variables=["language", "text"], template=template)
 final_prompt = prompt.format(language="French", text="Hello, how are you?")
 print(final_prompt)
 
-
 # Prompt calling method-2
 # prompt using chatprompttemplate 
 
@@ -71,6 +70,7 @@ few_shot_template = FewShotPromptTemplate(
 final_prompt = few_shot_template.format(input="big")
 print(final_prompt)
 
+# temperature is set to 0 to make the output deterministic
 llm = ChatOpenAI(model="gpt-5.5", temperature=0)
 
 chain = few_shot_template | llm
